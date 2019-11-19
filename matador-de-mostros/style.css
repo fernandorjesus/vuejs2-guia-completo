@@ -1,0 +1,133 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  padding: 10px;
+}
+
+.scores {
+  display: flex;
+}
+
+.score {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score h1 {
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+
+.life-bar {
+  border: 1px solid #aaa;
+  width: 80%;
+  height: 20px;
+}
+
+.life-bar .life {
+  background: green;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.life-bar .life.danger {
+  background: red;
+}
+
+/* Área de resultado */
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.result .win {
+  color: green;
+}
+
+.result .lose {
+  color: red;
+}
+
+/* Área dos botões (controle do jogo) */
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 10px;
+  margin: 0 10px;
+  text-transform: uppercase;
+}
+
+.btn.attack {
+  background: #e51c23;
+}
+
+.btn.especial-attack {
+  background: #ff9800;
+  color: #000;
+}
+
+.btn.heal {
+  background: #259b24;
+}
+
+.btn.give-up {
+  background: #bbb;
+  color: #000;
+}
+
+.btn.new-game {
+  background: #4253af;
+}
+
+/* Área dos Logs */
+.logs ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logs ul li {
+  border-radius: 3px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
+  padding: 3px 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.logs ul li.player {
+  background: #4253afaa;
+}
+
+.logs ul li.monster {
+  background: #e51c23aa;
+}
