@@ -1,7 +1,10 @@
 <template>
   <div class="usuario-detalhe">
     <h3>Usuário Detalhe</h3>
-    <p><strong>Codigo:</strong> {{ id }}</p>
+    <p>
+      <strong>Codigo:</strong>
+      {{ id }}
+    </p>
 
     <!-- :to="`/usuario/${id}/editar`" -->
     <router-link
@@ -10,10 +13,10 @@
       :to="{
         name: 'editarUsuario',
         params: { id },
-        query: { completo: true, lingua: 'pt' }
+        query: { completo: true, lingua: 'pt' },
+        hash: '#rodape'
       }"
-      >Editar</router-link
-    >
+    >Editar</router-link>
     <br />
     <br />
   </div>
@@ -21,7 +24,12 @@
 
 <script>
 export default {
-  props: ["id"]
+  props: ["id"],
+  beforeRouteEnter(to, from, next) {
+    console.log("Dentro do componente -> usuário detalhe");
+
+    next();
+  }
   // data() {
   //   return {
   //     id: this.$route.params.id

@@ -1,18 +1,50 @@
 <template>
   <div class="usuario-editar">
     <h3>Usuário Editar</h3>
-    <p><strong>Codigo:</strong> {{ id }}</p>
     <p>
-      <strong>Completo:</strong> {{ $route.query.completo ? "Sim" : "Não" }}
+      <strong>Codigo:</strong>
+      {{ id }}
     </p>
 
-    <p><strong>Lingua:</strong> {{ $route.query.lingua }}</p>
+    <p>
+      <strong>Completo:</strong>
+      {{ $route.query.completo ? "Sim" : "Não" }}
+    </p>
+
+    <p>
+      <strong>Lingua:</strong>
+      {{ $route.query.lingua }}
+    </p>
+
+    <hr />
+
+    <button primario @click="confirmou = true">Confirmar</button>
+
+    <div id="rodape">
+      <h3>Curso Vue</h3>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["id"]
+  props: ["id"],
+  data() {
+    return {
+      confirmou: false
+    };
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.confirmou) {
+      next();
+    } else {
+      if (confirm("Tem certeza?")) {
+        next();
+      } else {
+        next(false);
+      }
+    }
+  }
   // data() {
   //   return {
   //     id: this.$route.params.id
@@ -25,3 +57,9 @@ export default {
   // },
 };
 </script>
+
+<style>
+#rodape {
+  margin-top: 1000px;
+}
+</style>
