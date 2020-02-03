@@ -11,6 +11,7 @@ export default {
   components: {
     Stock
   },
+
   computed: {
     stocks() {
       return this.$store.getters.stocks;
