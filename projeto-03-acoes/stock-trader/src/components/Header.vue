@@ -21,13 +21,15 @@
           <v-btn text v-bind="attrs" v-on="on">Salvar & Carregar</v-btn>
         </template>
 
-        <v-list-item @click="saveData">
-          <v-list-item-title>Salvar Dados</v-list-item-title>
-        </v-list-item>
+        <v-list>
+          <v-list-item @click="saveData" key="1">
+            <v-list-item-title>Salvar Dados</v-list-item-title>
+          </v-list-item>
 
-        <v-list-item>
-          <v-list-item-title>Carregar Dados</v-list-item-title>
-        </v-list-item>
+          <v-list-item @click="loadDataLocal" key="2">
+            <v-list-item-title>Carregar Dados</v-list-item-title>
+          </v-list-item>
+        </v-list>
       </v-menu>
 
       <v-layout align-center>
@@ -48,7 +50,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["randomizeStocks"]),
+    ...mapActions(["randomizeStocks", "loadData"]),
 
     endDay() {
       this.randomizeStocks();
@@ -58,6 +60,10 @@ export default {
       const { funds, stockPortfolio, stocks } = this.$store.getters;
 
       this.$http.put("data.json", { funds, stockPortfolio, stocks });
+    },
+
+    loadDataLocal() {
+      this.loadData();
     }
   }
 };
